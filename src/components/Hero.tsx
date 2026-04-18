@@ -1,89 +1,119 @@
 "use client";
 
+import { Button, Chip, Icon } from "@/components/ui";
+
+const nav = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
+const MARQUEE_ITEMS = ["Veeb.site", "OneNet Servers", "Mola", "Shop8", "Yebovest", "RIBS", "Project Moon"];
+
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
-      {/* Background gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-violet-600/20 blur-3xl" />
-        <div className="absolute top-1/2 -right-40 w-80 h-80 rounded-full bg-blue-600/20 blur-3xl" />
-        <div className="absolute -bottom-20 left-1/3 w-72 h-72 rounded-full bg-indigo-600/15 blur-3xl" />
-        {/* Grid overlay */}
+    <section id="home" className="relative pt-28 md:pt-36 pb-20 overflow-hidden">
+      {/* Decorative gradient mesh */}
+      <div className="absolute inset-0 -z-10">
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute top-0 -left-32 w-[520px] h-[520px] rounded-full opacity-40 blur-3xl"
+          style={{ background: "radial-gradient(circle, var(--cqx-accent), transparent 70%)" }}
+        />
+        <div
+          className="absolute top-20 right-0 w-[620px] h-[620px] rounded-full opacity-35 blur-3xl"
+          style={{ background: "radial-gradient(circle, var(--cqx-primary), transparent 70%)" }}
+        />
+        <div
+          className="absolute inset-0"
           style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.08) 1px, transparent 0)",
+            backgroundSize: "32px 32px",
+            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
           }}
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-violet-500/10 border border-violet-500/30 rounded-full px-4 py-1.5 text-sm text-violet-300 font-medium mb-8">
-          <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
-          Africa&apos;s Technology Innovators
-        </div>
-
-        {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-white mb-6 max-w-5xl mx-auto">
-          Building Africa&apos;s Future —{" "}
-          <span className="bg-gradient-to-r from-violet-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
-            One Innovation at a Time.
-          </span>
-        </h1>
-
-        {/* Subheadline */}
-        <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Conqol-X Technologies Limited is more than a tech company. We&apos;re
-          explorers, inventors, and builders — designing solutions that turn bold
-          ideas into everyday tools for Africa and the world.
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center bg-violet-600 hover:bg-violet-500 text-white font-bold px-8 py-4 rounded-full text-base shadow-lg shadow-violet-500/25 transition-all duration-200 w-full sm:w-auto"
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          <Chip
+            variant="flat"
+            color="primary"
+            size="md"
+            className="mb-6"
+            startContent={<span className="w-1.5 h-1.5 rounded-full bg-[--cqx-primary] animate-pulse" />}
           >
-            Collaborate With Us
-          </a>
-          <a
-            href="#vision"
-            className="inline-flex items-center justify-center border border-white/20 text-white hover:bg-white/5 font-semibold px-8 py-4 rounded-full text-base transition-all duration-200 w-full sm:w-auto"
-          >
-            Discover Our Vision
-          </a>
-        </div>
+            RC 1755966 · Lagos · Exploring the future with you
+          </Chip>
 
-        {/* Stats row */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-          {[
-            { value: "4+", label: "Products Built" },
-            { value: "2", label: "Countries Registered" },
-            { value: "10yr", label: "Ambitious Roadmap" },
-            { value: "∞", label: "Potential Unlocked" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl font-extrabold text-white mb-1">
-                {stat.value}
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-[84px] leading-[1.05] tracking-[-0.03em] text-zinc-900">
+            <span className="block">Building Africa&apos;s future</span>
+            <span className="block">
+              <span className="italic bg-gradient-to-r from-[--cqx-accent] via-[--cqx-primary] to-violet-600 bg-clip-text text-transparent">
+                one drop
+              </span>
+              <span>{" "}at a time.</span>
+            </span>
+          </h1>
+
+          <p className="mt-8 text-lg md:text-xl text-zinc-600 max-w-2xl leading-relaxed">
+            Conqol-X Technologies Limited is more than a tech company. We&apos;re explorers, inventors, and builders — shipping market-ready software and hardware solutions for Africa and the world.
+          </p>
+
+          <div className="mt-10 flex flex-col sm:flex-row gap-3 w-full justify-center">
+            <Button
+              variant="shadow"
+              color="primary"
+              size="lg"
+              onClick={() => nav("contact")}
+              endContent={<Icon.arrow />}
+            >
+              Collaborate With Us
+            </Button>
+            <Button
+              variant="bordered"
+              color="default"
+              size="lg"
+              onClick={() => nav("products")}
+              startContent={<Icon.play />}
+            >
+              See what we&apos;ve built
+            </Button>
+          </div>
+
+          {/* Stats strip */}
+          <div className="mt-16 grid grid-cols-3 gap-6 md:gap-12 w-full max-w-3xl">
+            {[
+              { n: "2", l: "Live Products" },
+              { n: "3", l: "In Development" },
+              { n: "10yr", l: "Vision horizon" },
+            ].map((s, i) => (
+              <div key={i} className="text-left border-l-2 border-zinc-200 pl-4">
+                <div className="font-serif text-3xl md:text-4xl tracking-tight text-zinc-900">{s.n}</div>
+                <div className="text-xs md:text-sm text-zinc-500 mt-1">{s.l}</div>
               </div>
-              <div className="text-sm text-white/50">{stat.label}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/30">
-        <span className="text-xs font-medium tracking-widest uppercase">
-          Scroll
-        </span>
-        <div className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent" />
+        {/* Marquee */}
+        <div className="mt-20 overflow-hidden">
+          <div className="text-center text-xs uppercase tracking-[0.3em] text-zinc-400 mb-6">
+            Projects Moon · the innovation lab
+          </div>
+          <div className="relative">
+            <div className="flex gap-6 animate-marquee" style={{ width: "max-content" }}>
+              {[...Array(2)].map((_, r) => (
+                <div key={r} className="flex gap-6">
+                  {MARQUEE_ITEMS.map((p, i) => (
+                    <div key={i} className="flex items-center gap-3 px-6 py-3 bg-white rounded-full border border-zinc-200 shrink-0">
+                      <span className="w-2 h-2 rounded-full bg-[--cqx-primary]" />
+                      <span className="text-sm font-medium text-zinc-700">{p}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

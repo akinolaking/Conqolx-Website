@@ -1,9 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Vision from "@/components/Vision";
+import BiggerPicture from "@/components/BiggerPicture";
 import Approach from "@/components/Approach";
 import Products from "@/components/Products";
-import InnovationLab from "@/components/InnovationLab";
+import Vision from "@/components/Vision";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -13,10 +14,11 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Vision />
+        <BiggerPicture />
         <Approach />
         <Products />
-        <InnovationLab />
+        <Vision />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

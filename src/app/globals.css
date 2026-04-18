@@ -2,8 +2,9 @@
 @import "@heroui/styles";
 
 :root {
-  --background: #060912;
-  --foreground: #f0f4ff;
+  --cqx-primary: #6747E8;
+  --cqx-primary-shadow: rgba(103, 71, 232, 0.5);
+  --cqx-accent: #EC8B4F;
 }
 
 html {
@@ -11,6 +12,45 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+  font-family: var(--font-serif), 'Georgia', serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+::selection {
+  background: var(--cqx-primary);
+  color: white;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  transform: translateY(16px);
+  opacity: 0.001;
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.in {
+  transform: translateY(0);
+  opacity: 1;
 }
